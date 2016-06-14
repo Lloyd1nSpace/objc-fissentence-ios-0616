@@ -24,7 +24,7 @@ describe(@"FISSentence", ^{
         // He deered to kill a king's dare.
         
         invalidPuncts = [@"aAmMzZ13690~`@#$%^&*()[]{}|<>" componentsSeparatedByString:@""];
-
+        
         welcome = [[FISSentence alloc] init];
         welcome.words = [[NSMutableArray alloc] init];
         welcome.punctuation = @"";
@@ -66,14 +66,14 @@ describe(@"FISSentence", ^{
             
             expect(heyBlinkin.sentence).to.equal(@"Hey!");
         });
-
+        
         it(@"should do nothing when the word argument is a single space", ^{
             [heyBlinkin addWord:@" "];
             
             expect(heyBlinkin.sentence).to.equal(@"Hey!");
         });
     });
-
+    
     describe(@"addWords:WithPunctuation", ^{
         it(@"should add a single word and punctuation mark to an empty sentence", ^{
             [welcome addWords:@[@"Welcome"] withPunctuation:@"!"];
@@ -92,7 +92,7 @@ describe(@"FISSentence", ^{
             
             expect(heyBlinkin.sentence).to.equal(@"Hey Blinkin?");
         });
-
+        
         
         it(@"should add the words in the array argument to an empty sentence", ^{
             deeredToKill.punctuation = @".";
@@ -121,7 +121,7 @@ describe(@"FISSentence", ^{
             
             expect(heyBlinkin.sentence).to.equal(@"Hey Blinkin!");
         });
-
+        
         
         it(@"should do nothing if the punctuation argument is an empty string", ^{
             [heyBlinkin addWord:@"Blinkin"];
@@ -136,7 +136,7 @@ describe(@"FISSentence", ^{
             
             expect(heyBlinkin.sentence).to.equal(@"Hey Blinkin!");
         });
-
+        
         
         it(@"should do nothing if the punctuation argument is a non-punctuation character", ^{
             [heyBlinkin addWord:@"Blinkin"];
@@ -169,7 +169,7 @@ describe(@"FISSentence", ^{
             expect(kingIllegal.words.count).to.equal(10);
         });
     });
-
+    
     describe(@"insertWord:atIndex:", ^{
         it(@"should add the word argument to the beginning of the sentence when the index argument is 0", ^{
             [kingIllegal insertWord:@"It" atIndex:0];
@@ -192,7 +192,7 @@ describe(@"FISSentence", ^{
             expect(kingIllegal.sentence).to.equal(expectedSentence);
         });
     });
-
+    
     describe(@"replacePunctuationWithPunctuation:", ^{
         it(@"should replace punctuation string with the argument string", ^{
             [heyBlinkin replacePunctuationWithPunctuation:@"?"];
@@ -208,7 +208,7 @@ describe(@"FISSentence", ^{
             expect(heyBlinkin.sentence).to.equal(@"Hey!");
         });
     });
-
+    
     describe(@"replaceWordAtIndex:withWord:", ^{
         it(@"should replace the fourth word in the sentence with the word argument when the index argument is 3", ^{
             [kingIllegal replaceWordAtIndex:3 withWord:@"any"];
@@ -240,7 +240,7 @@ describe(@"FISSentence", ^{
             NSString *expectedSentence = @"King illegal forest to pig kill in it a is definitely.";
             expect(kingIllegal.sentence).to.equal(expectedSentence);
         });
-
+        
         it(@"should do nothing if the word argument is a space", ^{
             [kingIllegal addWord:@"definitely"];
             [kingIllegal replaceWordAtIndex:0 withWord:@" "];
@@ -248,7 +248,7 @@ describe(@"FISSentence", ^{
             NSString *expectedSentence = @"King illegal forest to pig kill in it a is definitely.";
             expect(kingIllegal.sentence).to.equal(expectedSentence);
         });
-
+        
     });
 });
 
